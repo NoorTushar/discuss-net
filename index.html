@@ -206,15 +206,17 @@
             <!-- section title end -->
 
             <!-- Blogs Main Div Start-->
-            <div>
+            <div class="flex flex-col lg:flex-row gap-5 md:gap-6">
                <!-- Left Blog Div Start -->
-               <div>
+               <div class="basis-[65%] space-y-6">
                   <!-- Each Blog Item Start -->
                   <div
                      class="bg-[#F3F3F5] rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row gap-6"
                   >
                      <!-- inner left blogger image -->
-                     <div class="size-[52px] md:size-[72px] relative">
+                     <div
+                        class="size-[52px] md:size-[72px] relative basis-[35%]"
+                     >
                         <img
                            class="w-full rounded-2xl"
                            src="https://i.ibb.co/wYxp7d6/pexels-spencer-selover-428328.jpg"
@@ -294,8 +296,48 @@
                   <!-- Each Blog Item End -->
                </div>
                <!-- Left Blog Div End -->
+
                <!-- Right Blog Div Start -->
-               <div></div>
+               <div class="p-6 bg-[#F3F3F5] rounded-3xl basis-[40%]">
+                  <!-- right upper Title start-->
+                  <div class="flex justify-between">
+                     <h3 class="text-xl font-bold">Title</h3>
+                     <div class="flex gap-1 flex-row">
+                        <div>
+                           <img src="assets/images/green-tickmark.png" alt="" />
+                        </div>
+                        <p class="opacity-60 font-inter">
+                           Mark as read (<span>4</span>)
+                        </p>
+                     </div>
+                  </div>
+                  <!-- right upper Title end-->
+
+                  <!-- right lower lists start -->
+                  <div class="shortListContainer">
+                     <!-- each shortlisted item start -->
+                     <div
+                        class="gap-y-2 flex flex-col sm:items-center sm:flex-row justify-between bg-white p-4 rounded-xl my-5"
+                     >
+                        <h3 class="text-sm font-bold basis-[75%]">
+                           10 Kids Unaware of Their Halloween Costume
+                        </h3>
+
+                        <div class="flex gap-1 m-0 items-center">
+                           <img
+                              src="assets/images/tabler-icon-eye.png"
+                              alt=""
+                           />
+
+                           <span class="text-sm opacity-60 font-inter"
+                              >1,568</span
+                           >
+                        </div>
+                     </div>
+                     <!-- each shortlisted item end -->
+                  </div>
+                  <!-- right lower lists end -->
+               </div>
                <!-- Right Blog Div End -->
             </div>
             <!-- Blogs Main Div End-->
