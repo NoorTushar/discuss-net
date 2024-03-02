@@ -4,6 +4,15 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>B9-A6</title>
+      <!-- Font Awesome CDN -->
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      />
+
       <!-- Tailwind and Daisy UI -->
       <link
          href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css"
@@ -22,16 +31,111 @@
                extend: {
                   colors: {
                      clifford: "#000",
-                     "our-primary": "#FF4240",
-                     "our-black": "#131318",
+                     "our-purple": "#797DFC",
+                     "our-black": "#12132D",
                   },
                },
             },
          };
       </script>
    </head>
-   <body>
-      <header></header>
+   <body class="font-mulish">
+      <header class="max-w-[1170px] w-[82%] mx-auto md:mt-7">
+         <!-- navbar starts -->
+         <nav class="navbar">
+            <div class="navbar-start">
+               <!-- dropdown -->
+               <div class="dropdown">
+                  <div
+                     tabindex="0"
+                     role="button"
+                     class="btn btn-ghost lg:hidden"
+                  >
+                     <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                     >
+                        <path
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="2"
+                           d="M4 6h16M4 12h8m-8 6h16"
+                        />
+                     </svg>
+                  </div>
+                  <ul
+                     tabindex="0"
+                     class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                     <li><a>Item 1</a></li>
+                     <li>
+                        <a>Parent</a>
+                        <ul class="p-2">
+                           <li><a>Submenu 1</a></li>
+                           <li><a>Submenu 2</a></li>
+                        </ul>
+                     </li>
+                     <li><a>Item 3</a></li>
+                  </ul>
+               </div>
+               <!-- Logo -->
+               <a class="btn btn-ghost text-3xl font-black text-our-black"
+                  >ReTro</a
+               >
+            </div>
+
+            <div class="navbar-end">
+               <div class="navbar-center hidden lg:flex">
+                  <ul class="px-1 menu-horizontal space-x-3">
+                     <!-- menu item 1 -->
+                     <li>
+                        <a
+                           class="size-12 border border-gray-200 flex items-center justify-center bg-[#F8F8F9] rounded-full cursor-pointer tooltip tooltip-bottom"
+                           data-tip="home"
+                           ><i
+                              class="text-[#6E6F7F] fa-solid fa-house bg-[#F8F8F9]"
+                           ></i
+                        ></a>
+                     </li>
+                     <!-- menu item 2 -->
+                     <li>
+                        <a
+                           class="size-12 border border-gray-200 flex items-center justify-center bg-[#F8F8F9] rounded-full cursor-pointer tooltip tooltip-bottom"
+                           data-tip="edit"
+                           ><i class="text-[#6E6F7F] fa-solid fa-pencil"></i
+                        ></a>
+                     </li>
+                     <!-- menu item 3 -->
+                     <li>
+                        <a
+                           class="size-12 border border-gray-200 flex items-center justify-center bg-[#F8F8F9] rounded-full cursor-pointer tooltip tooltip-bottom"
+                           data-tip="add"
+                           ><i class="text-[#6E6F7F] fa-solid fa-user-plus"></i
+                        ></a>
+                     </li>
+                     <!-- menu item 4 -->
+                     <li>
+                        <a
+                           class="size-12 border border-gray-200 flex items-center justify-center bg-[#F8F8F9] rounded-full cursor-pointer tooltip tooltip-bottom"
+                           data-tip="forum"
+                           ><i class="text-[#6E6F7F] fa-solid fa-flag"></i
+                        ></a>
+                     </li>
+                  </ul>
+               </div>
+               <div class="ml-6">
+                  <a
+                     class="btn py-4 px-10 rounded-3xl bg-our-purple text-white hover:bg-violet-400"
+                     >Sign In</a
+                  >
+               </div>
+            </div>
+         </nav>
+         <!-- navbar end -->
+      </header>
       <main></main>
       <footer></footer>
       <!-- JS Files -->
