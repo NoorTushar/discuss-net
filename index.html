@@ -40,7 +40,7 @@
       </script>
    </head>
    <body class="font-mulish">
-      <header class="max-w-[1170px] w-[82%] mx-auto md:mt-7">
+      <header class="max-w-[1170px] w-[95%] md:w-[82%] mx-auto mt-4 md:mt-7">
          <!-- navbar starts -->
          <nav class="navbar">
             <div class="navbar-start">
@@ -70,15 +70,10 @@
                      tabindex="0"
                      class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                   >
-                     <li><a>Item 1</a></li>
-                     <li>
-                        <a>Parent</a>
-                        <ul class="p-2">
-                           <li><a>Submenu 1</a></li>
-                           <li><a>Submenu 2</a></li>
-                        </ul>
-                     </li>
-                     <li><a>Item 3</a></li>
+                     <li><a>Home</a></li>
+                     <li><a>Edit</a></li>
+                     <li><a>Add</a></li>
+                     <li><a>Forum</a></li>
                   </ul>
                </div>
                <!-- Logo -->
@@ -88,7 +83,7 @@
             </div>
 
             <div class="navbar-end">
-               <div class="navbar-center hidden lg:flex">
+               <div class="navbar-center hidden md:flex">
                   <ul class="px-1 menu-horizontal space-x-3">
                      <!-- menu item 1 -->
                      <li>
@@ -126,11 +121,13 @@
                      </li>
                   </ul>
                </div>
+               <!-- Button  -->
                <div class="ml-6">
-                  <a
-                     class="btn py-4 px-10 rounded-3xl bg-our-purple text-white hover:bg-violet-400"
-                     >Sign In</a
+                  <button
+                     class="btn px-10 rounded-3xl bg-our-purple text-white text-[16px] font-bold hover:bg-violet-400"
                   >
+                     Sign In
+                  </button>
                </div>
             </div>
          </nav>
