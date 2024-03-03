@@ -19,6 +19,10 @@ const loadPosts = async () => {
 const displayPosts = async (posts) => {
    posts.forEach((eachPost) => {
       const div = document.createElement("div");
+      const { isActive } = eachPost;
+
+      // isActive?
+
       div.className =
          "bg-[#F3F3F5] rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row gap-6";
 
@@ -33,25 +37,26 @@ const displayPosts = async (posts) => {
             alt=""
          />
          <i
+         
             class="fa-solid fa-circle text-lg text-green-600 absolute -right-2 -top-2 bg-white rounded-full size-6 flex justify-center items-center"
          ></i>
       </div>
+
       <!-- inner right blog details -->
       <div class="space-y-4">
          <div
             class="*:opacity-80 flex space-x-4 font-inter text-our-black font-medium text-sm"
          >
-            <p># <span>Music</span></p>
-            <p>Author: <span>Awlad Hossain</span></p>
+            <p># <span>${eachPost.category}</span></p>
+            <p>Author: <span>${eachPost.author.name}</span></p>
          </div>
 
          <h3 class="text-xl font-bold">
-            10 Kids Unaware of Their Halloween Costume
+            ${eachPost.title}
          </h3>
 
          <p class="opacity-60 font-inter">
-            It’s one thing to subject yourself to ha Halloween
-            costume mishap because, hey that’s your prerogative
+            ${eachPost.description}
          </p>
 
          <!-- border hr -->
@@ -68,7 +73,7 @@ const displayPosts = async (posts) => {
                      src="assets/images/tabler-icon-message-2.png"
                      alt=""
                   />
-                  <span class="opacity-60 font-inter">560</span>
+                  <span class="opacity-60 font-inter">${eachPost.comment_count}</span>
                </div>
 
                <div>
@@ -77,19 +82,16 @@ const displayPosts = async (posts) => {
                      alt=""
                   />
                   <span class="opacity-60 font-inter"
-                     >1,568</span
+                     >${eachPost.view_count}</span
                   >
                </div>
 
                <div>
-                  <img
-                     src="assets/images/tabler-icon-clock-hour-9.png"
-                     alt=""
-                  />
-                  <span class="opacity-60 font-inter"
-                     >5 min</span
-                  >
-               </div>
+                    <img src="assets/images/tabler-icon-clock-hour-9.png" alt="" />
+                    <p class="opacity-60 font-inter">
+                        <span>${eachPost.posted_time}</span> min
+                    </p>
+                </div>  
             </div>
             <!-- Read Button -->
             <div>
@@ -123,7 +125,6 @@ const loadLatestPosts = async () => {
 
 const displayLatestPosts = (posts) => {
    posts.forEach((eachPost) => {
-      console.log(eachPost);
       const div = document.createElement("div");
       div.className = "card border border-gray-300 p-6";
 
