@@ -12,9 +12,16 @@ let categorySearchName = "";
 
 const latestPostLoader = document.getElementById("latestPostLoader");
 
+let allLoadPostsTimeoutId;
+let latestPostsTimeoutId;
+
 // 1. Load Posts in Let's Discuss Section
 
 const loadPosts = async (cat_name) => {
+   if (allLoadPostsTimeoutId) {
+      clearTimeout(allLoadPostsTimeoutId);
+   }
+
    allPostLoader.classList.remove("hidden");
    const url = `https://openapi.programming-hero.com/api/retro-forum/posts?category=${cat_name}`;
    const response = await fetch(url);
@@ -23,10 +30,12 @@ const loadPosts = async (cat_name) => {
    const { posts } = data;
 
    // after 2 seconds disabling the loader and showing post
-   setTimeout(() => {
+
+   allLoadPostsTimeoutId = setTimeout(() => {
       allPostLoader.classList.add("hidden");
       // executing display function with the array got
       displayPosts(posts);
+      console.log(`time out of All posts Executed`);
    }, 2000);
 };
 
@@ -179,14 +188,20 @@ postSearchButton.addEventListener("click", () => {
 // Latest Post Section Functionality:
 
 const loadLatestPosts = async () => {
+   if (latestPostsTimeoutId) {
+      clearTimeout(latestPostsTimeoutId);
+   }
+
+   latestPostLoader.classList.remove("hidden");
    const url =
       "https://openapi.programming-hero.com/api/retro-forum/latest-posts";
    const response = await fetch(url);
    const data = await response.json();
 
-   setTimeout(() => {
+   latestPostsTimeoutId = setTimeout(() => {
       latestPostLoader.classList.add("hidden");
       displayLatestPosts(data);
+      console.log(`time out of latest posts Executed`);
    }, 2000);
 };
 
