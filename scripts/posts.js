@@ -2,6 +2,8 @@ const blogContainer = document.getElementById("blogContainer");
 const latestPostsContainer = document.getElementById("latestPostContainer");
 const shortListContainer = document.getElementById("shortListContainer");
 
+const markAsReadCounter = document.getElementById("markAsReadCounter");
+
 // 1. Load Posts in Let's Discuss Section
 
 const loadPosts = async () => {
@@ -143,6 +145,10 @@ const makeShortlisted = (postName, viewCount) => {
    `;
 
    shortListContainer.appendChild(div);
+
+   const totalItemsMarked = document.querySelectorAll(".mark-read-item").length;
+
+   markAsReadCounter.innerText = totalItemsMarked;
 };
 
 // Latest Post Section Functionality:
