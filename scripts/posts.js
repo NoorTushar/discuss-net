@@ -123,8 +123,6 @@ const displayPosts = async (posts) => {
    });
 };
 
-loadPosts(categorySearchName);
-
 // 3. Clicking Green markRead Button
 const makeShortlisted = (postName, viewCount) => {
    const div = document.createElement("div");
@@ -235,4 +233,5 @@ const displayLatestPosts = (posts) => {
    });
 };
 
+loadPosts(categorySearchName);
 loadLatestPosts();
