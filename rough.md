@@ -111,3 +111,23 @@
 </div>
 <!-- each post card item end -->
 ```
+
+## Shorlist Items
+
+```html
+<!-- each shortlisted item start -->
+<div
+   class="gap-y-2 flex flex-col sm:items-center sm:flex-row justify-between bg-white p-4 rounded-xl my-5"
+>
+   <h3 class="text-sm font-bold basis-[75%]">
+      10 Kids Unaware of Their Halloween Costume
+   </h3>
+
+   <div class="flex gap-1 m-0 items-center">
+      <img src="assets/images/tabler-icon-eye.png" alt="" />
+
+      <span class="text-sm opacity-60 font-inter">1,568</span>
+   </div>
+</div>
+<!-- each shortlisted item end -->
+```

@@ -1,5 +1,6 @@
 const blogContainer = document.getElementById("blogContainer");
 const latestPostsContainer = document.getElementById("latestPostContainer");
+const shortListContainer = document.getElementById("shortListContainer");
 
 // 1. Load Posts in Let's Discuss Section
 
@@ -101,6 +102,7 @@ const displayPosts = async (posts) => {
             <!-- Read Button -->
             <div>
                <button
+               onclick="makeShortlisted('${eachPost.title}', ${eachPost.view_count})"
                   class="bg-green-600 text-white size-9 rounded-full flex items-center justify-center"
                >
                   <i class="fa-solid fa-envelope-open"></i>
@@ -117,7 +119,31 @@ const displayPosts = async (posts) => {
 loadPosts();
 
 // 3. Clicking Green markRead Button
-// const
+const makeShortlisted = (postName, viewCount) => {
+   const div = document.createElement("div");
+   div.className =
+      "mark-read-item gap-y-2 flex flex-col sm:items-center sm:flex-row justify-between bg-white p-4 rounded-xl my-5";
+
+   div.innerHTML = `
+   
+        <h3 class="text-sm font-bold basis-[75%]">
+            ${postName}
+        </h3>
+
+        <div class="flex gap-1 m-0 items-center">
+            <img
+                src="assets/images/tabler-icon-eye.png"
+                alt=""
+            />
+
+            <span class="text-sm opacity-60 font-inter"
+                >${viewCount}</span
+            >
+        </div>
+   `;
+
+   shortListContainer.appendChild(div);
+};
 
 // Latest Post Section Functionality:
 
