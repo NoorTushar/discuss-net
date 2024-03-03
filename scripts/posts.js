@@ -6,19 +6,26 @@ const markAsReadCounter = document.getElementById("markAsReadCounter");
 
 const searchCategoryElement = document.getElementById("searchCategory");
 const postSearchButton = document.getElementById("postSearchButton");
+const allPostLoader = document.getElementById("allPostLoader");
 
 let categorySearchName = "";
+
 // 1. Load Posts in Let's Discuss Section
 
 const loadPosts = async (cat_name) => {
+   allPostLoader.classList.remove("hidden");
    const url = `https://openapi.programming-hero.com/api/retro-forum/posts?category=${cat_name}`;
    const response = await fetch(url);
    const data = await response.json();
    // all posts array here:
    const { posts } = data;
 
-   // executing display function with the array got
-   displayPosts(posts);
+   // after 2 seconds disabling the loader and showing post
+   setTimeout(() => {
+      allPostLoader.classList.add("hidden");
+      // executing display function with the array got
+      displayPosts(posts);
+   }, 2000);
 };
 
 // 2. Display Posts in Let's Discuss Section
@@ -30,7 +37,6 @@ const displayPosts = async (posts) => {
 
       // isActive circle color conditional
       const { isActive } = eachPost;
-      let circleClasses = "";
 
       isActive
          ? (circleColor = "text-green-600")

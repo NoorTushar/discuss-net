@@ -210,8 +210,16 @@
             <!-- Blogs Main Div Start-->
             <div class="flex flex-col lg:flex-row gap-5 md:gap-6">
                <!-- Left Blog Div Start -->
-               <div id="blogContainer" class="basis-[65%] space-y-6">
-                  <!-- Posts will appear here dynamically -->
+               <div id="blogContainer" class="basis-[65%] flex flex-col gap-6">
+                  <!-- Loading Spinner -->
+                  <div id="allPostLoader" class="text-center mt-8 hidden">
+                     <span
+                        class="loading loading-dots loading-lg text-our-purple"
+                     ></span
+                     >.
+                  </div>
+
+                  <!-- Posts will appear below dynamically -->
                </div>
                <!-- Left Blog Div End -->
 
