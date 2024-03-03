@@ -101,7 +101,6 @@ const displayPosts = async (posts) => {
             <!-- Read Button -->
             <div>
                <button
-                  id="readBtn"
                   class="bg-green-600 text-white size-9 rounded-full flex items-center justify-center"
                >
                   <i class="fa-solid fa-envelope-open"></i>
