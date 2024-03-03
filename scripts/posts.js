@@ -18,11 +18,13 @@ let latestPostsTimeoutId;
 // 1. Load Posts in Let's Discuss Section
 
 const loadPosts = async (cat_name) => {
+   blogContainer.innerHTML = "";
    if (allLoadPostsTimeoutId) {
       clearTimeout(allLoadPostsTimeoutId);
    }
 
    allPostLoader.classList.remove("hidden");
+   console.log(allPostLoader);
    const url = `https://openapi.programming-hero.com/api/retro-forum/posts?category=${cat_name}`;
    const response = await fetch(url);
    const data = await response.json();
@@ -47,8 +49,9 @@ const displayPosts = async (posts) => {
       const div = document.createElement("div");
 
       // isActive circle color conditional
-      const { isActive } = eachPost;
-
+      const { isActive, title } = eachPost;
+      const postTitle = title.replace("'", "");
+      console.log(postTitle);
       isActive
          ? (circleColor = "text-green-600")
          : (circleColor = "text-red-600");
@@ -82,7 +85,7 @@ const displayPosts = async (posts) => {
          </div>
 
          <h3 class="text-xl font-bold">
-            ${eachPost.title}
+            ${postTitle}
          </h3>
 
          <p class="opacity-60 font-inter">
@@ -121,12 +124,12 @@ const displayPosts = async (posts) => {
                     <p class="opacity-60 font-inter">
                         <span>${eachPost.posted_time}</span> min
                     </p>
-                </div>  
+                </div>
             </div>
             <!-- Read Button -->
             <div>
                <button
-               onclick="makeShortlisted('${eachPost.title}', ${eachPost.view_count})"
+               onclick="makeShortlisted('${postTitle}', ${eachPost.view_count})"
                   class="bg-green-600 text-white size-9 rounded-full flex items-center justify-center"
                >
                   <i class="fa-solid fa-envelope-open"></i>
@@ -147,7 +150,7 @@ const makeShortlisted = (postName, viewCount) => {
       "mark-read-item gap-y-2 flex flex-col sm:items-center sm:flex-row justify-between bg-white p-4 rounded-xl my-5";
 
    div.innerHTML = `
-   
+
         <h3 class="text-sm font-bold basis-[75%]">
             ${postName}
         </h3>
@@ -177,7 +180,8 @@ const handleSearch = () => {
    console.log(`clicked search button`);
    categorySearchName = searchCategoryElement.value;
    console.log(categorySearchName);
-
+   console.log(allPostLoader);
+   allPostLoader.classList.add("block");
    loadPosts(categorySearchName);
 };
 
@@ -223,7 +227,7 @@ const displayLatestPosts = (posts) => {
         </figure>
         <div class="card-body space-y-2 p-0 pt-6">
 
-            
+
             <div class="flex gap-2">
                 <img src="assets/images/date-icon.png" alt="" />
                 <!-- Date -->
