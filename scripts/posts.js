@@ -50,7 +50,7 @@ const displayPosts = async (posts) => {
 
       // isActive circle color conditional
       const { isActive, title } = eachPost;
-      const postTitle = title.replace("'", "");
+      const postTitle = title.replace("'", "&rsquo;");
       console.log(postTitle);
       isActive
          ? (circleColor = "text-green-600")
