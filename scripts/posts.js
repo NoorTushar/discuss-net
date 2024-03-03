@@ -21,6 +21,15 @@ const displayPosts = async (posts) => {
       const div = document.createElement("div");
       const { isActive } = eachPost;
 
+      let circleClasses = "";
+
+      if (isActive) {
+         circleClasses =
+            "fa-solid fa-circle text-lg text-green-600 absolute -right-2 -top-2 bg-white rounded-full size-6 flex justify-center items-center";
+      } else {
+         circleClasses =
+            "fa-solid fa-circle text-lg text-red-600 absolute -right-2 -top-2 bg-white rounded-full size-6 flex justify-center items-center";
+      }
       // isActive?
 
       div.className =
@@ -37,8 +46,7 @@ const displayPosts = async (posts) => {
             alt=""
          />
          <i
-         
-            class="fa-solid fa-circle text-lg text-green-600 absolute -right-2 -top-2 bg-white rounded-full size-6 flex justify-center items-center"
+            class="${circleClasses}"
          ></i>
       </div>
 
