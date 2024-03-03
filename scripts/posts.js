@@ -4,6 +4,9 @@ const shortListContainer = document.getElementById("shortListContainer");
 
 const markAsReadCounter = document.getElementById("markAsReadCounter");
 
+const searchCategoryElement = document.getElementById("searchCategory");
+const postSearchButton = document.getElementById("postSearchButton");
+
 // 1. Load Posts in Let's Discuss Section
 
 const loadPosts = async () => {
@@ -20,6 +23,7 @@ const loadPosts = async () => {
 // 2. Display Posts in Let's Discuss Section
 
 const displayPosts = async (posts) => {
+   blogContainer.innerHTML = "";
    posts.forEach((eachPost) => {
       const div = document.createElement("div");
 
@@ -118,7 +122,7 @@ const displayPosts = async (posts) => {
    });
 };
 
-loadPosts();
+// loadPosts();
 
 // 3. Clicking Green markRead Button
 const makeShortlisted = (postName, viewCount) => {
@@ -150,6 +154,20 @@ const makeShortlisted = (postName, viewCount) => {
 
    markAsReadCounter.innerText = totalItemsMarked;
 };
+
+// 4. Search Button Click Functionality
+
+const handleSearch = () => {
+   console.log(`clicked search button`);
+   const categorySearchName = searchCategoryElement.value;
+   console.log(categorySearchName);
+
+   loadPosts(categorySearchName);
+};
+
+postSearchButton.addEventListener("click", () => {
+   handleSearch();
+});
 
 // Latest Post Section Functionality:
 
