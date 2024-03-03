@@ -10,6 +10,8 @@ const allPostLoader = document.getElementById("allPostLoader");
 
 let categorySearchName = "";
 
+const latestPostLoader = document.getElementById("latestPostLoader");
+
 // 1. Load Posts in Let's Discuss Section
 
 const loadPosts = async (cat_name) => {
@@ -182,10 +184,15 @@ const loadLatestPosts = async () => {
    const response = await fetch(url);
    const data = await response.json();
 
-   displayLatestPosts(data);
+   setTimeout(() => {
+      latestPostLoader.classList.add("hidden");
+      displayLatestPosts(data);
+   }, 2000);
 };
 
 const displayLatestPosts = (posts) => {
+   latestPostLoader.classList.add("hidden");
+
    posts.forEach((eachPost) => {
       const div = document.createElement("div");
       div.className = "card border border-gray-300 p-6";
