@@ -7,10 +7,11 @@ const markAsReadCounter = document.getElementById("markAsReadCounter");
 const searchCategoryElement = document.getElementById("searchCategory");
 const postSearchButton = document.getElementById("postSearchButton");
 
+let categorySearchName = "";
 // 1. Load Posts in Let's Discuss Section
 
-const loadPosts = async () => {
-   const url = "https://openapi.programming-hero.com/api/retro-forum/posts";
+const loadPosts = async (cat_name) => {
+   const url = `https://openapi.programming-hero.com/api/retro-forum/posts?category=${cat_name}`;
    const response = await fetch(url);
    const data = await response.json();
    // all posts array here:
@@ -122,7 +123,7 @@ const displayPosts = async (posts) => {
    });
 };
 
-// loadPosts();
+loadPosts(categorySearchName);
 
 // 3. Clicking Green markRead Button
 const makeShortlisted = (postName, viewCount) => {
@@ -159,7 +160,7 @@ const makeShortlisted = (postName, viewCount) => {
 
 const handleSearch = () => {
    console.log(`clicked search button`);
-   const categorySearchName = searchCategoryElement.value;
+   categorySearchName = searchCategoryElement.value;
    console.log(categorySearchName);
 
    loadPosts(categorySearchName);
