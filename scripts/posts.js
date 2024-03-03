@@ -123,43 +123,50 @@ const loadLatestPosts = async () => {
 
 const displayLatestPosts = (posts) => {
    posts.forEach((eachPost) => {
+      console.log(eachPost);
       const div = document.createElement("div");
       div.className = "card border border-gray-300 p-6";
 
       div.innerHTML = `
+        <!-- Cover Image -->
         <figure class="">
             <img
-                src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                alt="Shoes"
+                src=${eachPost.cover_image}
+                alt=""
                 class="rounded-xl"
             />
         </figure>
         <div class="card-body space-y-2 p-0 pt-6">
-            <!-- Date -->
+
+            
             <div class="flex gap-2">
                 <img src="assets/images/date-icon.png" alt="" />
-                <p class="opacity-60">29 January 2024</p>
+                <!-- Date -->
+                <p class="opacity-60">${
+                   eachPost.author.posted_date || "No Publish Date"
+                }</p>
             </div>
             <!-- Post title -->
             <h3 class="text-lg font-extrabold">
-                What will a mars habitat force that impact in our daily
-                life!!!
+                ${eachPost.title}
             </h3>
             <!-- post description -->
             <p class="opacity-60">
-                Yes, you can run unit tests and view the results
-                directly within the app.
+                ${eachPost.description}
             </p>
             <!-- author container -->
             <div class="flex gap-3">
+                <!-- Author Image -->
                 <div>
-                    <img src="assets/images/author-image.jpg" alt="" />
+                    <img src=${eachPost.profile_image} alt="" />
                 </div>
                 <div>
                     <!-- author name -->
-                    <h4 class="font-bold">Cameron Williamson</h4>
+                    <h4 class="font-bold">${eachPost.author.name}</h4>
                     <!-- author designation -->
-                    <p class="text-sm opacity-60">Unknown</p>
+                    <p class="text-sm opacity-60">${
+                       eachPost.author.designation || "Unknown"
+                    }</p>
                 </div>
             </div>
         </div>
