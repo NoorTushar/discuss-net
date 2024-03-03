@@ -1,5 +1,5 @@
 const blogContainer = document.getElementById("blogContainer");
-console.log(blogContainer);
+const latestPostsContainer = document.getElementById("latestPostContainer");
 
 // 1. Load Posts in Let's Discuss Section
 
@@ -18,8 +18,6 @@ const loadPosts = async () => {
 
 const displayPosts = async (posts) => {
    posts.forEach((eachPost) => {
-      console.log(eachPost);
-
       const div = document.createElement("div");
       div.className =
          "bg-[#F3F3F5] rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row gap-6";
@@ -112,7 +110,7 @@ const displayPosts = async (posts) => {
 
 loadPosts();
 
-// Latest Post Functionality
+// Latest Post Section Functionality:
 
 const loadLatestPosts = async () => {
    const url =
@@ -120,5 +118,55 @@ const loadLatestPosts = async () => {
    const response = await fetch(url);
    const data = await response.json();
 
-   console.log(data);
+   displayLatestPosts(data);
 };
+
+const displayLatestPosts = (posts) => {
+   posts.forEach((eachPost) => {
+      const div = document.createElement("div");
+      div.className = "card border border-gray-300 p-6";
+
+      div.innerHTML = `
+        <figure class="">
+            <img
+                src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                alt="Shoes"
+                class="rounded-xl"
+            />
+        </figure>
+        <div class="card-body space-y-2 p-0 pt-6">
+            <!-- Date -->
+            <div class="flex gap-2">
+                <img src="assets/images/date-icon.png" alt="" />
+                <p class="opacity-60">29 January 2024</p>
+            </div>
+            <!-- Post title -->
+            <h3 class="text-lg font-extrabold">
+                What will a mars habitat force that impact in our daily
+                life!!!
+            </h3>
+            <!-- post description -->
+            <p class="opacity-60">
+                Yes, you can run unit tests and view the results
+                directly within the app.
+            </p>
+            <!-- author container -->
+            <div class="flex gap-3">
+                <div>
+                    <img src="assets/images/author-image.jpg" alt="" />
+                </div>
+                <div>
+                    <!-- author name -->
+                    <h4 class="font-bold">Cameron Williamson</h4>
+                    <!-- author designation -->
+                    <p class="text-sm opacity-60">Unknown</p>
+                </div>
+            </div>
+        </div>
+      `;
+
+      latestPostsContainer.append(div);
+   });
+};
+
+loadLatestPosts();
