@@ -19,18 +19,15 @@ const loadPosts = async () => {
 const displayPosts = async (posts) => {
    posts.forEach((eachPost) => {
       const div = document.createElement("div");
-      const { isActive } = eachPost;
 
+      // isActive circle color conditional
+      const { isActive } = eachPost;
       let circleClasses = "";
 
-      if (isActive) {
-         circleClasses =
-            "fa-solid fa-circle text-lg text-green-600 absolute -right-2 -top-2 bg-white rounded-full size-6 flex justify-center items-center";
-      } else {
-         circleClasses =
-            "fa-solid fa-circle text-lg text-red-600 absolute -right-2 -top-2 bg-white rounded-full size-6 flex justify-center items-center";
-      }
-      // isActive?
+      isActive
+         ? (circleColor = "text-green-600")
+         : (circleColor = "text-red-600");
+      // done the above isActive conditional
 
       div.className =
          "bg-[#F3F3F5] rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row gap-6";
@@ -42,11 +39,11 @@ const displayPosts = async (posts) => {
       >
          <img
             class="w-full rounded-2xl"
-            src="https://i.ibb.co/wYxp7d6/pexels-spencer-selover-428328.jpg"
+            src="${eachPost.image}"
             alt=""
          />
          <i
-            class="${circleClasses}"
+            class="fa-solid fa-circle text-lg absolute -right-2 -top-2 bg-white rounded-full size-6 flex justify-center items-center ${circleColor}"
          ></i>
       </div>
 
@@ -119,6 +116,9 @@ const displayPosts = async (posts) => {
 };
 
 loadPosts();
+
+// 3. Clicking Green markRead Button
+// const
 
 // Latest Post Section Functionality:
 
