@@ -24,6 +24,7 @@ const loadPosts = async (cat_name) => {
    }
 
    allPostLoader.classList.remove("hidden");
+
    const url = `https://openapi.programming-hero.com/api/retro-forum/posts?category=${cat_name}`;
    const response = await fetch(url);
    const data = await response.json();
@@ -33,16 +34,32 @@ const loadPosts = async (cat_name) => {
    // after 2 seconds disabling the loader and showing post
 
    allLoadPostsTimeoutId = setTimeout(() => {
-      allPostLoader.classList.add("hidden");
       // executing display function with the array got
-      displayPosts(posts);
+      displayPosts(posts, cat_name);
    }, 2000);
 };
 
 // 2. Display Posts in Let's Discuss Section
 
-const displayPosts = async (posts) => {
+const displayPosts = async (posts, cat_name) => {
+   allPostLoader.classList.add("hidden");
    blogContainer.innerHTML = "";
+
+   // if category does not match.
+   if (posts.length === 0) {
+      console.log(`no posts to show`);
+      blogContainer.innerHTML = `
+      <div
+         class="bg-red-100 border border-red-300 rounded-3xl p-6 sm:p-8 text-center"
+      >
+         <p>
+            "${cat_name}" - this category name you searched does not match
+            our category names.
+         </p>
+      </div>
+      `;
+   }
+
    posts.forEach((eachPost) => {
       const div = document.createElement("div");
 
@@ -210,7 +227,6 @@ const displayLatestPosts = (posts) => {
    posts.forEach((eachPost) => {
       const div = document.createElement("div");
       div.className = "card border border-gray-300 p-6";
-
       div.innerHTML = `
         <!-- Cover Image -->
         <figure class="">
