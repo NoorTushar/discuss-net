@@ -244,10 +244,12 @@ const displayLatestPosts = (posts) => {
                 ${eachPost.description}
             </p>
             <!-- author container -->
-            <div class="flex gap-3">
+            <div class="flex gap-3 items-center">
                 <!-- Author Image -->
-                <div>
-                    <img src=${eachPost.profile_image} alt="" />
+                <div class="size-[56px]">
+                    <img class="rounded-full" src=${
+                       eachPost.profile_image
+                    } alt="" />
                 </div>
                 <div>
                     <!-- author name -->
