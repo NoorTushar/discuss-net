@@ -63,7 +63,7 @@ const displayPosts = async (posts) => {
       div.innerHTML = `
       <!-- inner left blogger image -->
       <div
-         class="size-[52px] md:size-[72px] relative basis-[35%]"
+         class="size-[72px] relative"
       >
          <img
             class="w-full rounded-2xl"
@@ -76,7 +76,7 @@ const displayPosts = async (posts) => {
       </div>
 
       <!-- inner right blog details -->
-      <div class="space-y-4">
+      <div class="space-y-4 flex-1">
          <div
             class="*:opacity-80 flex space-x-4 font-inter text-our-black font-medium text-sm"
          >
