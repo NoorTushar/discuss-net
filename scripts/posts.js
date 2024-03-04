@@ -24,7 +24,6 @@ const loadPosts = async (cat_name) => {
    }
 
    allPostLoader.classList.remove("hidden");
-   console.log(allPostLoader);
    const url = `https://openapi.programming-hero.com/api/retro-forum/posts?category=${cat_name}`;
    const response = await fetch(url);
    const data = await response.json();
@@ -37,7 +36,6 @@ const loadPosts = async (cat_name) => {
       allPostLoader.classList.add("hidden");
       // executing display function with the array got
       displayPosts(posts);
-      console.log(`time out of All posts Executed`);
    }, 2000);
 };
 
@@ -51,7 +49,7 @@ const displayPosts = async (posts) => {
       // isActive circle color conditional
       const { isActive, title } = eachPost;
       const postTitle = title.replace("'", "&rsquo;");
-      console.log(postTitle);
+
       isActive
          ? (circleColor = "text-green-600")
          : (circleColor = "text-red-600");
@@ -177,10 +175,8 @@ const makeShortlisted = (postName, viewCount) => {
 // 4. Search Button Click Functionality
 
 const handleSearch = () => {
-   console.log(`clicked search button`);
    categorySearchName = searchCategoryElement.value;
-   console.log(categorySearchName);
-   console.log(allPostLoader);
+
    allPostLoader.classList.add("block");
    loadPosts(categorySearchName);
 };
@@ -205,7 +201,6 @@ const loadLatestPosts = async () => {
    latestPostsTimeoutId = setTimeout(() => {
       latestPostLoader.classList.add("hidden");
       displayLatestPosts(data);
-      console.log(`time out of latest posts Executed`);
    }, 2000);
 };
 
